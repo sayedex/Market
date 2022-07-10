@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0x2b45ACEA46e698765eaad944979393F3cE21E3C6"
       abi: Marketplace
+      startBlock: 12562697 	 
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -25,13 +26,13 @@ dataSources:
           file: ./abis/Marketplace.json
       eventHandlers:
         - event: BuyPriceSell(uint256,uint256,bool)
-          handler: handleBuyPriceSell
+          handler: Selloutwithbuyprice
         - event: NFTClaimed(uint256,uint256,address)
           handler: handleNFTClaimed
         - event: NFTRefunded(uint256,uint256,address)
           handler: handleNFTRefunded
         - event: NewAuction(uint256,address,address,uint256,address,address,uint256,uint256,uint256,uint256,bool)
-          handler: handleNewAuction
+          handler: NewAuctionListed
         - event: NewBidOnAuction(uint256,uint256)
           handler: handleNewBidOnAuction
         - event: Nftselltotopbidder(uint256,uint256,address,uint256,bool)
